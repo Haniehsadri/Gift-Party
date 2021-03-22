@@ -6,36 +6,36 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println(" tedad afrad mored nazar ra vared konid :");
-        int tedad = input.nextInt();
-        String[] array = new String[tedad];
-        int[] pol = new int[tedad];
-        System.out.println(" asami sherkatkonandegan ra vared konid : ");
-        for (int i = 0; i <tedad ; i++) {
+        System.out.println(" input the number of participants :");
+        int numberofparticipants= input.nextInt();
+        String[] array = new String[numberofparticipants];
+        int[] money  = new int[numberofparticipants];
+        System.out.println(" input the name of participants : ");
+        for (int i = 0; i <numberofparticipants ; i++) {
 
-            String asami = input.next();
-            array[i] = asami;}
+            String names = input.next();
+            array[i] = names;}
 
-        for (int i = 0; i < tedad ; i++){
-            System.out.println(" esm hedye dahande ra vared konid :");
-            String hedyedahande = input.next();
+        for (int i = 0; i < numberofparticipants ; i++){
+            System.out.println(" input the name of the giftgiver :");
+            String giftgiver = input.next();
 
-            System.out.println(" meghdar pol hedeye va tedad afrad ra vared konid  :");
-            int meghdarpol=input.nextInt();
-            int tedadafradhedyedahnde=input.nextInt();
-            int shomarearraye=Main.Search(array,hedyedahande);
-            pol[shomarearraye]-=meghdarpol;
-            System.out.println(" asami hedye girandeha ra vared konid :");
-            for(int j = 0; j<tedadafradhedyedahnde;j++){
+            System.out.println(" enter the value of gift and number of gift receivers  :");
+            int valueofgift=input.nextInt();
+            int numberofgiftreceivers=input.nextInt();
+            int numberofaray=Main.Search(array,giftgiver);
+            money[numberofaray]-=valueofgift;
+            System.out.println(" enter the name of giftreceivers :");
+            for(int j = 0; j<numberofgiftreceivers;j++){
                 //   System.out.println(" asami hedye girandeha ra vared konid ");
                 String hedyegirande=input.next();
-                pol[Main.Search(array,hedyegirande)]+=(int)meghdarpol/tedadafradhedyedahnde;
+                money[Main.Search(array,hedyegirande)]+=(int)valueofgift/numberofgiftreceivers;
             }
 
 
         }
 
-        Main.print(array,pol);
+        Main.print(array,money);
     }
 
 
@@ -54,7 +54,7 @@ public class Main {
     }
     public static void print (String[] array, int [] pol){
         for (int i=0 ;i<array.length;i++){
-            System.out.printf("meghdar pol %s=%d  ", array[i],pol[i]);
+            System.out.printf("moneyof  %s=%d  ", array[i],pol[i]);
         }
     }
 }
